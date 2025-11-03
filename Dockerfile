@@ -30,8 +30,8 @@ ENV PATH="/root/.cargo/bin:${PATH}"
 COPY pyproject.toml uv.lock ./
 
 # Sync dependencies (prod + dev) according to repository guidance
-ENV PATH="/root/.local/bin:${PATH}"
 RUN uv sync --all-extras --all-packages --group dev
+ENV PATH="/root/.local/bin:${PATH}"
 
 # Now copy the rest of the source tree
 COPY . .
