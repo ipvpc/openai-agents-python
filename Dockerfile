@@ -26,3 +26,4 @@ COPY . .
 # Default command runs the repo checks (format-check, lint, mypy, tests)
 CMD ["make", "check"]
 
+RUN uv sync --all-extras --all-packages --group dev
