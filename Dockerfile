@@ -10,15 +10,9 @@ WORKDIR /app
 # Copy only project definition files first for better layer caching
 COPY pyproject.toml uv.lock ./
 
-# Install dependencies only (without building workspace project)
-#RUN uv sync --no-install-project --all-extras --all-packages --group dev
-
 # Copy README.md (needed by pyproject.toml for build) and source files
 COPY README.md ./
 COPY src/agents ./src/agents
-
-# Sync again to build and install the workspace project
-#RUN uv sync --all-extras --all-packages --group dev
 
 # Now copy the rest of the source tree
 COPY . .
