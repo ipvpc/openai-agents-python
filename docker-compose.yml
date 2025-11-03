@@ -1,0 +1,9 @@
+services:
+  tests:
+    build: .
+    image: openai-agents:local
+    command: ["make", "check"]
+    # Uncomment to develop interactively with live code; beware it invalidates cached deps layer.
+    # volumes:
+    #   - .:/app
+
