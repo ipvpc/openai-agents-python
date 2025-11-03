@@ -10,6 +10,16 @@ WORKDIR /app
 # Install curl to fetch uv (fast Python package manager)
 RUN apt-get update \
     && apt-get install -y --no-install-recommends curl \
+    build-essential \
+    gcc \
+    g++ \
+    make \
+    cmake \
+    git \
+    libffi-dev \
+    libssl-dev \
+    zlib1g-dev \
+    libreadline-dev \
     && rm -rf /var/lib/apt/lists/*
 
 # Install uv
@@ -20,6 +30,7 @@ ENV PATH="/root/.cargo/bin:${PATH}"
 COPY pyproject.toml uv.lock ./
 
 # Sync dependencies (prod + dev) according to repository guidance
+ENV PATH="/root/.local/bin:${PATH}"
 RUN uv sync --all-extras --all-packages --group dev
 
 # Now copy the rest of the source tree
