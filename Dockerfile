@@ -21,3 +21,6 @@ COPY . .
 CMD ["make", "check"]
 
 RUN uv sync --all-extras --all-packages --group dev
+
+RUN python -m venv .venv
+RUN source .venv/bin/activate && pip install openai-agents
