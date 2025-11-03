@@ -1,5 +1,5 @@
 sudo docker run -it \
---env OPENAI_API_KEY=sk-proj-1234567890 \
---env OPENAI_WEBHOOK_SECRET=whsec_1234567890 \
---env OPENAI_WEBHOOK_URL=https://example.com/openai/webhook \
+--env AZURE_OPENAI_ENDPOINT=https://<resource-name>.openai.azure.com/ \
+--env AZURE_OPENAI_API_KEY=your-azure-api-key \
+--env AZURE_OPENAI_API_VERSION=2024-02-15-preview \
 openai-agents:local bash

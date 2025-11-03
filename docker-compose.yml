@@ -3,6 +3,11 @@ services:
     build: .
     image: openai-agents:local
     command: ["make", "check"]
+    environment:
+      # Azure OpenAI configuration (set these to use Azure OpenAI)
+      # AZURE_OPENAI_ENDPOINT: https://<resource-name>.openai.azure.com/
+      # AZURE_OPENAI_API_KEY: your-azure-api-key
+      # AZURE_OPENAI_API_VERSION: 2024-02-15-preview
     # Uncomment to develop interactively with live code; beware it invalidates cached deps layer.
     # volumes:
     #   - .:/app
