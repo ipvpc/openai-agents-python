@@ -11,7 +11,7 @@ WORKDIR /app
 COPY pyproject.toml uv.lock ./
 
 # Sync dependencies (prod + dev) according to repository guidance
-RUN uv sync --all-extras --all-packages --group dev
+#RUN uv sync --all-extras --all-packages --group dev
 
 # Now copy the rest of the source tree
 COPY . .
